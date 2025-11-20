@@ -1,6 +1,6 @@
 import React from 'react';
 import { INTRO_TEXT } from '../constants';
-import { ArrowDown, Code, Terminal } from 'lucide-react';
+import { ArrowDown, Code } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
