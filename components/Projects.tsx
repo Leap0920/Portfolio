@@ -27,22 +27,22 @@ const Projects: React.FC = () => {
       <div className="absolute top-20 right-0 w-96 h-96 bg-blue-900/10 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-20 left-0 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 reveal">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 reveal">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Featured Projects</h2>
-            <p className="text-slate-400 max-w-xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">Featured Projects</h2>
+            <p className="text-slate-400 max-w-xl text-sm md:text-base">
               Real-world applications demonstrating full-stack capabilities and system architecture.
             </p>
           </div>
-          <a href="https://github.com/Leap0920" target="_blank" rel="noreferrer" className="text-blue-400 font-medium hover:text-blue-300 transition-colors inline-flex items-center gap-2 group">
+          <a href="https://github.com/Leap0920" target="_blank" rel="noreferrer" className="text-blue-400 font-medium hover:text-blue-300 transition-colors inline-flex items-center gap-2 group text-sm md:text-base">
             View full archive <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {PROJECTS.map((project, idx) => (
-            <div 
+            <div
               key={project.id}
               className="group relative bg-slate-900/50 border border-slate-800 rounded-2xl p-8 hover:border-slate-700 hover:bg-slate-900 transition-all duration-300 reveal flex flex-col h-full"
               style={{ transitionDelay: `${idx * 100}ms` }}
@@ -52,13 +52,13 @@ const Projects: React.FC = () => {
                 <div className={`p-3 rounded-xl border ${getIconBackground(project.title)} transition-transform group-hover:scale-110 duration-300`}>
                   {getProjectIcon(project.title)}
                 </div>
-                
+
                 <div className="flex gap-3">
                   {project.repoUrl && (
-                    <a 
-                      href={project.repoUrl} 
-                      target="_blank" 
-                      rel="noreferrer" 
+                    <a
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noreferrer"
                       className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
                       aria-label="View Source"
                     >
@@ -66,10 +66,10 @@ const Projects: React.FC = () => {
                     </a>
                   )}
                   {project.demoUrl && (
-                    <a 
-                      href={project.demoUrl} 
-                      target="_blank" 
-                      rel="noreferrer" 
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noreferrer"
                       className="p-2 text-slate-400 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition-colors"
                       aria-label="View Live Demo"
                     >
@@ -93,8 +93,8 @@ const Projects: React.FC = () => {
               <div className="pt-6 border-t border-slate-800/50">
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map(tag => (
-                    <span 
-                      key={tag} 
+                    <span
+                      key={tag}
                       className="text-xs font-medium text-slate-300 bg-slate-800 px-3 py-1.5 rounded-md border border-slate-700"
                     >
                       {tag}

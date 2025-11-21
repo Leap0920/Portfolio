@@ -15,23 +15,23 @@ const Skills: React.FC = () => {
   const softSkills = SKILLS.filter(s => s.category === 'Soft Skill');
 
   return (
-    <section id="skills" className="py-32 bg-slate-950 relative">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-16 reveal">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Technical Arsenal</h2>
-          <p className="text-slate-400 max-w-xl">
+    <section id="skills" className="py-20 md:py-32 bg-slate-950 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="mb-12 md:mb-16 reveal">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">Technical Arsenal</h2>
+          <p className="text-slate-400 max-w-xl text-sm md:text-base">
             The languages, frameworks, and tools I use to bring ideas to life.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           <div className="reveal" style={{ transitionDelay: '100ms' }}>
             <h3 className="text-sm font-bold text-blue-500 uppercase tracking-wider mb-6 border-l-2 border-blue-500 pl-3">Languages</h3>
             <div className="flex flex-wrap gap-3">
               {languages.map(s => <SkillPill key={s.name} name={s.name} />)}
             </div>
           </div>
-          
+
           <div className="reveal" style={{ transitionDelay: '200ms' }}>
             <h3 className="text-sm font-bold text-cyan-500 uppercase tracking-wider mb-6 border-l-2 border-cyan-500 pl-3">Frameworks</h3>
             <div className="flex flex-wrap gap-3">

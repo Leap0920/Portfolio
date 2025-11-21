@@ -43,12 +43,13 @@ const ChatWidget: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-none">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end pointer-events-none">
       {/* Chat Window */}
-      <div 
+      <div
         className={`
           pointer-events-auto
-          bg-slate-900 rounded-2xl shadow-2xl border border-slate-800 w-80 sm:w-96 
+          bg-slate-900 rounded-2xl shadow-2xl border border-slate-800 
+          w-[calc(100vw-2rem)] sm:w-80 md:w-96 max-w-md
           transition-all duration-300 origin-bottom-right overflow-hidden
           ${isOpen ? 'opacity-100 scale-100 mb-4 translate-y-0' : 'opacity-0 scale-95 h-0 mb-0 translate-y-10'}
         `}
@@ -58,7 +59,7 @@ const ChatWidget: React.FC = () => {
             <Bot className="w-5 h-5 text-blue-400" />
             <span className="font-semibold text-sm tracking-wide">AI Assistant</span>
           </div>
-          <button 
+          <button
             onClick={() => setIsOpen(false)}
             className="text-slate-500 hover:text-white transition-colors"
           >
@@ -68,15 +69,15 @@ const ChatWidget: React.FC = () => {
 
         <div className="h-80 overflow-y-auto p-4 bg-slate-900 space-y-3 scrollbar-thin scrollbar-thumb-slate-700">
           {messages.map((msg, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
             >
-              <div 
+              <div
                 className={`
                   max-w-[85%] p-3 rounded-2xl text-sm leading-relaxed
-                  ${msg.role === 'user' 
-                    ? 'bg-blue-600 text-white rounded-br-none' 
+                  ${msg.role === 'user'
+                    ? 'bg-blue-600 text-white rounded-br-none'
                     : 'bg-slate-800 border border-slate-700 text-slate-200 rounded-bl-none'}
                 `}
               >
@@ -108,7 +109,7 @@ const ChatWidget: React.FC = () => {
             className="flex-1 bg-slate-900 border border-slate-700 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 text-slate-200 placeholder:text-slate-600"
             disabled={isLoading}
           />
-          <button 
+          <button
             onClick={handleSend}
             disabled={isLoading || !input.trim()}
             className="bg-blue-600 hover:bg-blue-500 disabled:bg-slate-800 disabled:text-slate-600 text-white p-2 rounded-full transition-colors shadow-lg shadow-blue-900/20"
@@ -131,7 +132,7 @@ const ChatWidget: React.FC = () => {
         {!isOpen && (
           <span className="absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-20 animate-ping"></span>
         )}
-        
+
         {isOpen ? (
           <X className="w-6 h-6 text-white" />
         ) : (
