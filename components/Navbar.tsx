@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-        setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -60,17 +60,16 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav 
-      className={`fixed w-full z-50 transition-all duration-500 ${
-        isScrolled || isMobileMenuOpen
-          ? 'bg-slate-950/90 backdrop-blur-lg shadow-lg border-b border-slate-800 py-4' 
+    <nav
+      className={`fixed w-full z-50 transition-all duration-500 ${isScrolled || isMobileMenuOpen
+          ? 'bg-slate-950/90 backdrop-blur-lg shadow-lg border-b border-slate-800 py-4'
           : 'bg-transparent py-6'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative z-50">
         {/* Brand / Logo */}
-        <a 
-          href="#" 
+        <a
+          href="#"
           onClick={scrollToTop}
           className="text-2xl font-black text-slate-100 tracking-tighter hover:text-blue-400 transition-colors"
         >
@@ -80,7 +79,7 @@ const Navbar: React.FC = () => {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a 
+            <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
@@ -102,7 +101,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
+        <button
           className="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
@@ -112,23 +111,24 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div 
+      <div
         className={`
-            fixed inset-0 bg-slate-950 z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden
+            fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden
             ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}
         `}
+        style={{ height: '100dvh' }} // Use dynamic viewport height for mobile browsers
       >
         {/* Background decoration */}
         <div className="absolute top-0 right-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div className="flex flex-col items-center gap-8">
+        <div className="flex flex-col items-center gap-8 w-full px-6 max-h-[80vh] overflow-y-auto">
           {navLinks.map((link, idx) => (
-            <a 
+            <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className={`text-2xl font-bold text-slate-300 hover:text-blue-400 transition-all duration-300 transform cursor-pointer ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+              className={`text-3xl font-bold text-slate-300 hover:text-blue-400 transition-all duration-300 transform cursor-pointer ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
               style={{ transitionDelay: `${idx * 100}ms` }}
             >
               {link.name}
@@ -136,17 +136,17 @@ const Navbar: React.FC = () => {
           ))}
         </div>
 
-        <div className={`flex gap-8 mt-12 pt-8 border-t border-slate-800 w-1/2 justify-center transition-all duration-500 delay-300 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-             <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white">
-              <Github className="w-8 h-8" />
-            </a>
-            <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white">
-              <Linkedin className="w-8 h-8" />
-            </a>
-            <a href={SOCIAL_LINKS.email} className="text-slate-400 hover:text-white">
-              <Mail className="w-8 h-8" />
-            </a>
-          </div>
+        <div className={`flex gap-8 mt-12 pt-8 border-t border-slate-800 w-2/3 justify-center transition-all duration-500 delay-300 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white p-2">
+            <Github className="w-8 h-8" />
+          </a>
+          <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white p-2">
+            <Linkedin className="w-8 h-8" />
+          </a>
+          <a href={SOCIAL_LINKS.email} className="text-slate-400 hover:text-white p-2">
+            <Mail className="w-8 h-8" />
+          </a>
+        </div>
       </div>
     </nav>
   );
