@@ -6,10 +6,8 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Certificates from './components/Certificates';
 import Footer from './components/Footer';
-import ChatWidget from './components/ChatWidget';
-
 const App: React.FC = () => {
-  
+
   // Simple Scroll Animation Logic
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -39,7 +37,6 @@ const App: React.FC = () => {
         <Certificates />
       </main>
       <Footer />
-      <ChatWidget />
     </div>
   );
 };
